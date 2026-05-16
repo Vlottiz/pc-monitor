@@ -12,6 +12,17 @@
 </div>
 
 ---
+## Why PC Monitor?
+
+PC Monitor was built to combine hardware monitoring, fan control, and RGB control into one lightweight application with a modern UI.
+
+Unlike traditional monitoring tools, PC Monitor offers:
+- Fully customizable themes
+- Native fan curve editing
+- RGB control via OpenRGB
+- Multi-window dashboards
+- Simple installer with automatic updates
+
 
 ## Features
 
@@ -19,9 +30,9 @@
 |---|---|
 | **CPU Monitoring** | Per-core clock speeds, temperatures, CCD temps (AMD), package power |
 | **GPU Monitoring** | Temperature, clock speed, voltage, power draw, VRAM |
-| **Fan Control** | Auto / Manual / Custom curve editor with drag-and-drop points |
+| **Fan Control** | Auto / Manual / Custom curve editor with drag-and-drop points |----------------------(In Progress)
 | **Temperature History** | Min / Max / Avg for every thermal sensor on the system |
-| **RGB Control** | OpenRGB integration (500+ devices) |
+| **RGB Control** | OpenRGB integration (500+ devices) | ------------------------------------------------(In Progress)
 | **Multi-window** | Pop out any page to a separate window — run fans on one monitor, temps on another |
 | **Themes** | 8 built-in color presets + full per-color customization + 3 saved profiles |
 | **Hardware Auto-detect** | CPU, GPU, RAM, socket type all detected and displayed automatically |
@@ -45,6 +56,17 @@
 
 ---
 
+## Quick Start
+
+1. Download the [latest release](https://github.com/Vlottiz/pc-monitor/releases/latest)
+2. Run the installer
+3. Launch PC Monitor as Administrator
+4. Monitor your system in real time
+
+---
+
+## Installation
+
 ## Installation
 
 ### Option A — Installer (Recommended)
@@ -56,7 +78,7 @@
 The installer:
 - Places the app in `Program Files\PCMonitor`
 - Creates a Desktop and Start Menu shortcut
-- Adds Windows Defender exclusions automatically
+- Adds a Windows Defender exclusion to prevent false positives from low-level hardware monitoring components
 - Appears in Add/Remove Programs for clean uninstall
 
 ### Option B — Manual
@@ -85,7 +107,8 @@ Intel CPUs require a kernel-mode driver (`WinRing0`) to read per-core temperatur
 - ❌ Per-core individual temps/clocks
 
 **To unlock full Intel sensor support:**
-> Windows Security → Device Security → Core Isolation → Microsoft Vulnerable Driver Blocklist → **OFF** → Restart
+> Windows Security → Device Security → Core Isolation → Microsoft Vulnerable Driver Blocklist → **OFF** → Restart 
+(Per-core Intel support relies on WinRing0, which may still be blocked on some systems because the driver is not currently EV-signed. Until an EV code-signing certificate is added, this limitation will remain for some Intel systems.)
 
 This is the same setting required by HWiNFO, CPU-Z, and MSI Afterburner.
 
